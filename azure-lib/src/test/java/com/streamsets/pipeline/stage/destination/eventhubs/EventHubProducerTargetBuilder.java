@@ -32,22 +32,22 @@ class EventHubProducerTargetBuilder {
   }
 
   EventHubProducerTargetBuilder namespaceName(String namespaceName) {
-    commonConf.namespaceName = namespaceName;
+    commonConf.namespaceName = () -> namespaceName;
     return this;
   }
 
   EventHubProducerTargetBuilder eventHubName(String eventHubName) {
-    commonConf.eventHubName = eventHubName;
+    commonConf.eventHubName = () -> eventHubName;
     return this;
   }
 
   EventHubProducerTargetBuilder sasKeyName(String sasKeyName) {
-    commonConf.sasKeyName = sasKeyName;
+    commonConf.sasKeyName = () -> sasKeyName;
     return this;
   }
 
   EventHubProducerTargetBuilder sasKey(String sasKey) {
-    commonConf.sasKey = sasKey;
+    commonConf.sasKey = () -> sasKey;
     return this;
   }
 
