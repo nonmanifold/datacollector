@@ -19,13 +19,21 @@ import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import com.microsoft.azure.eventhubs.ConnectionStringBuilder;
 import com.microsoft.azure.eventhubs.EventHubClient;
 import com.microsoft.azure.eventhubs.EventHubException;
+import com.streamsets.pipeline.api.Stage;
+import com.streamsets.pipeline.api.StageException;
+import com.streamsets.pipeline.api.Target;
+import com.streamsets.pipeline.api.credential.CredentialValue;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
 public class EventHubCommon {
 
+  private static final Logger LOG = LoggerFactory.getLogger(EventHubCommon.class);
   public final static String CONF_NAME_SPACE = "commonConf.namespaceName";
   private final EventHubConfigBean commonConf;
 
@@ -33,12 +41,12 @@ public class EventHubCommon {
     this.commonConf = commonConf;
   }
 
-  public EventHubClient createEventHubClient(String threadNamePattern) throws IOException, EventHubException {
+  public EventHubClient createEventHubClient(String threadNamePattern) throws IOException, EventHubException, StageException {
     final ConnectionStringBuilder connStr = new ConnectionStringBuilder()
-        .setNamespaceName(commonConf.namespaceName)
-        .setEventHubName(commonConf.eventHubName)
-        .setSasKey(commonConf.sasKey)
-        .setSasKeyName(commonConf.sasKeyName);
+        .setNamespaceName(commonConf.namespaceName.get())
+        .setEventHubName(commonConf.eventHubName.get())
+        .setSasKey(commonConf.sasKey.get())
+        .setSasKeyName(commonConf.sasKeyName.get());
 
     final Executor executor = Executors.newCachedThreadPool(
         new ThreadFactoryBuilder().setNameFormat(threadNamePattern).build()
