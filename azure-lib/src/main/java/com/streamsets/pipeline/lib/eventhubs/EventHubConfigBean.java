@@ -16,50 +16,51 @@
 package com.streamsets.pipeline.lib.eventhubs;
 
 import com.streamsets.pipeline.api.ConfigDef;
+import com.streamsets.pipeline.api.credential.CredentialValue;
 
 public class EventHubConfigBean {
 
   @ConfigDef(
       required = true,
-      type = ConfigDef.Type.STRING,
+      type = ConfigDef.Type.CREDENTIAL,
       label = "Namespace Name",
       defaultValue = "",
       description = "Namespace that contains the event hub",
       displayPosition = 10,
       group = "EVENT_HUB"
   )
-  public String namespaceName = "";
+  public CredentialValue namespaceName = "";
 
   @ConfigDef(
       required = true,
-      type = ConfigDef.Type.STRING,
+      type = ConfigDef.Type.CREDENTIAL,
       label = "Event Hub Name",
       defaultValue = "",
       description = "",
       displayPosition = 20,
       group = "EVENT_HUB"
   )
-  public String eventHubName = "";
+  public CredentialValue eventHubName = "";
 
   @ConfigDef(
       required = true,
-      type = ConfigDef.Type.STRING,
+      type = ConfigDef.Type.CREDENTIAL,
       label = "Shared Access Policy Name",
       defaultValue = "",
       description = "Name of a shared access policy associated with the namespace",
       displayPosition = 30,
       group = "EVENT_HUB"
   )
-  public String sasKeyName = "";
+  public CredentialValue sasKeyName = "";
 
   @ConfigDef(
       required = true,
-      type = ConfigDef.Type.STRING,
+      type = ConfigDef.Type.CREDENTIAL,
       label = "Connection String Key",
       defaultValue = "",
       description = "One of the connection string key values associated with the policy",
       displayPosition = 40,
       group = "EVENT_HUB"
   )
-  public String sasKey = "";
+  public CredentialValue sasKey = "";
 }
