@@ -32,22 +32,22 @@ class EventHubConsumerSourceBuilder {
   }
 
   EventHubConsumerSourceBuilder namespaceName(String namespaceName) {
-    commonConf.namespaceName = namespaceName;
+    commonConf.namespaceName = () -> namespaceName;
     return this;
   }
 
   EventHubConsumerSourceBuilder eventHubName(String eventHubName) {
-    commonConf.eventHubName = eventHubName;
+    commonConf.eventHubName = () -> eventHubName;
     return this;
   }
 
   EventHubConsumerSourceBuilder sasKeyName(String sasKeyName) {
-    commonConf.sasKeyName = sasKeyName;
+    commonConf.sasKeyName = () -> sasKeyName;
     return this;
   }
 
   EventHubConsumerSourceBuilder sasKey(String sasKey) {
-    commonConf.sasKey = sasKey;
+    commonConf.sasKey = () -> sasKey;
     return this;
   }
 
