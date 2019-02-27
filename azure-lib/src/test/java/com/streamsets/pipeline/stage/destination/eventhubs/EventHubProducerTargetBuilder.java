@@ -32,12 +32,12 @@ class EventHubProducerTargetBuilder {
   }
 
   EventHubProducerTargetBuilder namespaceName(String namespaceName) {
-    commonConf.namespaceName = () -> namespaceName;
+    commonConf.namespaceName = namespaceName;
     return this;
   }
 
   EventHubProducerTargetBuilder eventHubName(String eventHubName) {
-    commonConf.eventHubName = () -> eventHubName;
+    commonConf.eventHubName = eventHubName;
     return this;
   }
 
