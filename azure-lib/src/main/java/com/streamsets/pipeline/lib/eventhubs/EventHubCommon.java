@@ -43,8 +43,8 @@ public class EventHubCommon {
 
   public EventHubClient createEventHubClient(String threadNamePattern) throws IOException, EventHubException, StageException {
     final ConnectionStringBuilder connStr = new ConnectionStringBuilder()
-        .setNamespaceName(commonConf.namespaceName.get())
-        .setEventHubName(commonConf.eventHubName.get())
+        .setNamespaceName(commonConf.namespaceName)
+        .setEventHubName(commonConf.eventHubName)
         .setSasKey(commonConf.sasKey.get())
         .setSasKeyName(commonConf.sasKeyName.get());
 
