@@ -32,12 +32,12 @@ class EventHubConsumerSourceBuilder {
   }
 
   EventHubConsumerSourceBuilder namespaceName(String namespaceName) {
-    commonConf.namespaceName = () -> namespaceName;
+    commonConf.namespaceName = namespaceName;
     return this;
   }
 
   EventHubConsumerSourceBuilder eventHubName(String eventHubName) {
-    commonConf.eventHubName = () -> eventHubName;
+    commonConf.eventHubName = eventHubName;
     return this;
   }
 
