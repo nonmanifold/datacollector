@@ -22,25 +22,25 @@ public class EventHubConfigBean {
 
   @ConfigDef(
       required = true,
-      type = ConfigDef.Type.CREDENTIAL,
+      type = ConfigDef.Type.STRING,
       label = "Namespace Name",
       defaultValue = "",
       description = "Namespace that contains the event hub",
       displayPosition = 10,
       group = "EVENT_HUB"
   )
-  public CredentialValue namespaceName = "";
+  public String namespaceName = "";
 
   @ConfigDef(
       required = true,
-      type = ConfigDef.Type.CREDENTIAL,
+      type = ConfigDef.Type.STRING,
       label = "Event Hub Name",
       defaultValue = "",
       description = "",
       displayPosition = 20,
       group = "EVENT_HUB"
   )
-  public CredentialValue eventHubName = "";
+  public String eventHubName = "";
 
   @ConfigDef(
       required = true,
