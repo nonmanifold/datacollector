@@ -111,8 +111,8 @@ public class EventHubConsumerSource implements PushSource, IEventProcessorFactor
     List<EventProcessorHost> eventProcessorHostList = new ArrayList<>();
     try {
       ConnectionStringBuilder eventHubConnectionString = new ConnectionStringBuilder()
-          .setNamespaceName(commonConf.namespaceName.get())
-          .setEventHubName(commonConf.eventHubName.get())
+          .setNamespaceName(commonConf.namespaceName)
+          .setEventHubName(commonConf.eventHubName)
           .setSasKey(commonConf.sasKey.get())
           .setSasKeyName(commonConf.sasKeyName.get());
 
@@ -122,7 +122,7 @@ public class EventHubConsumerSource implements PushSource, IEventProcessorFactor
       for (int i = 0; i < consumerConfigBean.maxThreads; i++) {
         EventProcessorHost eventProcessorHost = new EventProcessorHost(
             consumerConfigBean.hostNamePrefix + i,
-            commonConf.eventHubName.get(),
+            commonConf.eventHubName,
             consumerConfigBean.consumerGroup,
             eventHubConnectionString.toString(),
             storageConnectionString,
