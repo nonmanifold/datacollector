@@ -51,7 +51,7 @@ public class EventHubConfigBean {
       displayPosition = 30,
       group = "EVENT_HUB"
   )
-  public CredentialValue sasKeyName = "";
+  public CredentialValue sasKeyName;
 
   @ConfigDef(
       required = true,
@@ -62,5 +62,5 @@ public class EventHubConfigBean {
       displayPosition = 40,
       group = "EVENT_HUB"
   )
-  public CredentialValue sasKey = "";
+  public CredentialValue sasKey;
 }
